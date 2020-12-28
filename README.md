@@ -1,5 +1,8 @@
 #### Dotfile Strategy
 [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
+```
+git clone --bare git@github.com:renierG/myconfig.git $HOME/.myconfig
+```
 
 #### Tools
  - [**nvim**](https://neovim.io/): hyperextensible Vim-based text editor
