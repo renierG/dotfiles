@@ -3,6 +3,7 @@
 
 !/.config/alacritty/alacritty.yml
 !/.config/nvim/init.vim
+!/.config/zsh/abbreviations
 !.gitignore
 !.ideavimrc
 !.p10.zsh
