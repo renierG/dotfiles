@@ -1,0 +1,101 @@
+
+env:
+  TERM: xterm-256color
+
+window:
+  # Window dimensions (changes require restart)
+  dimensions:
+    columns: 2
+    lines: 0
+
+  # Window padding (changes require restart)
+  padding:
+   x: 2
+   y: 2
+
+  decorations: none
+
+scrolling:
+  history: 10000
+
+font:
+  normal:
+    family: Hack
+    style: Regular
+
+  bold:
+    family: Hack
+    style: Bold
+
+  italic:
+    family: Hack
+    style: Italic
+
+  bold_italic:
+    family: Hack
+    style: BoldItalic
+
+  size: 10.0
+
+  offset:
+   x: 0
+   y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+  # Thin stroke font rendering (macOS only) for retina displays
+  #use_thin_strokes: true
+
+draw_bold_text_with_bright_colors: true
+
+# Colors (Ayu Mirage)
+colors:
+
+  # Default colors
+  primary:
+    background: '#111A1F'
+    foreground: '#C0C7CA'
+
+  # Normal colors
+  normal:
+    black: '#191E2A'
+    red: '#FF3333'
+    green: '#BAE67E'
+    yellow: '#FFA759'
+    blue: '#73D0FF'
+    magenta: '#FFD580'
+    cyan: '#95E6CB'
+    white: '#C7C7C7'
+
+  # Bright colors
+  bright:
+    black: '#686868'
+    red: '#F27983'
+    green: '#A6CC70'
+    yellow: '#FFCC66'
+    blue: '#5CCFE6'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'
+
+selection:
+  # Contains all characters that are used as separators for "semantic words" in Alacritty.
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+key_bindings:
+  - { key: V,         mods: Control|Shift,  action: Paste }
+  - { key: C,         mods: Control|Shift,  action: Copy }
+  - { key: Key0,      mods: Control,        action: ResetFontSize }
+  - { key: Equals,    mods: Control,        action: IncreaseFontSize }
+  - { key: Minus,     mods: Control,        action: DecreaseFontSize }
+  - { key: PageUp,    mods: Shift,          action: ScrollPageUp,  }
+  - { key: PageDown,  mods: Shift,          action: ScrollPageDown }
+  - { key: Home,      mods: Shift,          action: ScrollToTop,   }
+  - { key: End,       mods: Shift,          action: ScrollToBottom }
+
+

@@ -1,0 +1,64 @@
+source .vimrc
+
+" ==================== config ==================== "
+
+set ideajoin
+set dialogescape=on
+set virtualedit=onemore
+
+
+" ==================== plugins ==================== "
+
+set sneak
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
+Plug 'terryma/vim-multiple-cursors'
+
+" config
+let g:argtextobj_pairs="[:],(:),<:>"
+
+
+" ==================== mappings ==================== "
+
+" search
+nmap <C-P> :action GotoFile<CR>
+
+" intellij windows
+nmap <Leader>e :action ActivateProjectToolWindow<CR>
+nmap <Leader>t :action ActivateTerminalToolWindow<CR>
+nmap <Leader>h :action HideAllWindows<CR>
+
+" intellij actions
+nmap <Leader>g :action Generate<CR>
+nmap <Leader>r :action Refactorings.QuickListPopupAction<CR>
+nmap <Leader>l :action ReformatCode<CR>
+nmap <Leader>o :action OptimizeImports<CR>
+
+vmap J :action MoveStatementDown<CR>
+vmap K :action MoveStatementUp<CR>
+
+" intellij gotos
+nmap gf :action GotoFile<CR>
+nmap ga :action GotoAction<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap ge :action GotoNextError<CR>
+nmap gE :action GotoPreviousError<CR>
+nmap gh :action QuickJavaDoc<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gs :action GotoSymbol<CR>
+nmap gy :action GotoTypeDeclaration<CR>
+
+" use intellij navigation history
+nmap <C-O> :action Back<CR>
+nmap <C-I> :action Forward<CR>
+
+" intellij run/debug
+nmap <Leader><Leader>r :action Run<CR>
+nmap <Leader><Leader>s :action Stop<CR>
+nmap <Leader><Leader>d :action Debug<CR>
+nmap <Leader><Leader>b :action ToggleLineBreakpoint<CR>
+
