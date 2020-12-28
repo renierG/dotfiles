@@ -1,1 +1,11 @@
-.myconfig
+/*
+/*/
+
+!/.config/alacritty/alacritty.yml
+!/.config/nvim/init.vim
+!.gitignore
+!.ideavimrc
+!.p10.zsh
+!.vimrc
+!.zshrc
+!README.md
