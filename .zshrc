@@ -68,7 +68,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 
 # ==================== alias ==================== #
-alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias cdh='cd ~'
 
