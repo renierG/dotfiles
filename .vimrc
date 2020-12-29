@@ -49,6 +49,7 @@ call plug#end()
 
 " config
 let ayucolor="mirage"
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 colorscheme ayu
 
 
