@@ -1,11 +1,11 @@
 
-# ============ p10k ============ #
+# ==================== p10k ==================== #
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
-# ============ zinit ============ #
+# ==================== zinit ==================== #
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 	command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
 	command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
@@ -27,7 +27,7 @@ zinit lucid for \
 	as'completion' is-snippet 'https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose'
 
 
-# ============ env ============ #
+# ==================== env ==================== #
 export EDITOR='nvim'
 export GIT_EDITOR='$EDITOR'
 export ENHANCD_FILTER=fzf
@@ -35,11 +35,11 @@ export TERM=xterm-256color
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 
-# ============ keybindings ============ #
+# ==================== keybindings ==================== #
 bindkey '^F' forward-word
 bindkey '^B' backward-word
 
-# ============ options ============ #
+# ==================== options ==================== #
 setopt no_beep
 setopt globdots
 setopt mark_dirs
@@ -51,7 +51,7 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 
 
-# ============ comletion ============ #
+# ==================== comletion ==================== #
 setopt auto_list
 setopt auto_menu
 setopt share_history
@@ -67,7 +67,7 @@ zstyle ':completion:*:default' list-colors ${LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 
-# ============ alias ============ #
+# ==================== alias ==================== #
 alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 
 alias cdh='cd ~'
@@ -80,21 +80,20 @@ alias tr4='tree -L 4'
 #alias ll='exa -alhF --group-directories-first --time-style=long-iso'
 #alias llx='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llx -T -L=2' tr3='llx -T -L=3'
 
-alias vimrc='vim ~/dotfiles/.vimrc'
-alias ideavimrc='vim ~/dotfiles/.ideavimrc'
-alias zshrc='vim ~/dotfiles/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias ideavimrc='vim ~/.ideavimrc'
+alias zshrc='vim ~/.zshrc'
 
 alias Oni2='~/Applications/Onivim2.AppDir/AppRun'
 
 alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
-# ============ fzf ============ #
+# ==================== fzf ==================== #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# ============ p10k ============ #
+# ==================== p10k ==================== #
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
-
 

@@ -1,5 +1,5 @@
 
-"" ================== config ==================
+"" ==================== config ====================
 set clipboard=unnamedplus
 set hidden
 set ignorecase 
@@ -26,8 +26,7 @@ set softtabstop=4
 set tabstop=4
 
 
-"" ================== plug ==================
-
+"" ==================== plug ====================
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
@@ -48,24 +47,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/argtextobj.vim'
 call plug#end()
 
-
 " config
 let ayucolor="mirage"
 colorscheme ayu
 
 
-"" ================== mappings ==================
-
+"" ==================== mappings ====================
 let mapleader=" "
 
 " fzf
-silent! !git rev-parse --is-inside-work-tree 
-if v:shell_error == 0
-  nnoremap <C-P> :GFiles<CR> 
-else
-  nnoremap <C-P> :Files<CR>
-endif
-nnoremap <Leader>/ :BLines<cr>
+nnoremap gf :Files<CR>
+nnoremap gF :GFiles<CR> 
+nnoremap gl :BLines<cr>
 
 " vertically center cursor after jumps
 nnoremap <C-d> <C-d>M
@@ -107,7 +100,7 @@ noremap Y y$
 " yank-delete 
 nnoremap yd d
 
-" always delete in black hole
+" always change in black hole
 nnoremap D "_D
 nnoremap d "_d
 vnoremap d "_d
@@ -118,3 +111,4 @@ nnoremap X "_X
 vnoremap X "_X
 nnoremap x "_x
 vnoremap x "_x
+

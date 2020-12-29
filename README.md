@@ -8,4 +8,4 @@ git clone --bare git@github.com:renierG/myconfig.git $HOME/.myconfig
  - [**nvim**](https://neovim.io/): hyperextensible Vim-based text editor
  - [**exa**](https://the.exa.website/): modern replacement for _ls_.
  - [**fzf**](https://github.com/junegunn/fzf): general-purpose command-line fuzzy finder.
- - [**cht.sh**](https://github.com/chubin/cheat.sh): Unified access to the best community driven cheat sheets repositories of the world.
+
