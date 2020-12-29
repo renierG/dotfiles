@@ -75,7 +75,7 @@ vnoremap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
   
-" test
+" noob scrolling
 nnoremap <C-J> 10j
 nnoremap <C-K> 10k
 
