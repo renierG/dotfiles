@@ -1,6 +1,6 @@
 
 "" ==================== config ====================
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set hidden
 set ignorecase 
 set incsearch
