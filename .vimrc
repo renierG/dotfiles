@@ -98,8 +98,11 @@ nnoremap <CR> i<CR><ESC>^
 " makes more sense
 noremap Y y$ 
 
-" yank-delete 
+" yank-change 
 nnoremap yd d
+nnoremap yD D 
+nnoremap yc c 
+nnoremap yC C 
 
 " always change in black hole
 nnoremap D "_D
