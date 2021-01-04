@@ -47,7 +47,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/argtextobj.vim'
 call plug#end()
 
-" config
+" colorscheme
 let ayucolor="mirage"
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 colorscheme ayu
@@ -71,7 +71,7 @@ nnoremap <C-b> <C-b>M
 vnoremap < <gv
 vnoremap > >gv
 
-" move (and keep) selection up/down with indentation context
+" move selection up/down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
   
@@ -89,11 +89,8 @@ vnoremap v V
 " always jump to exact mark with '
 noremap ' `
 
-" paste in insert mode
-inoremap <C-V> <C-R>+
-
-" split line on cursor
-nnoremap <CR> i<CR><ESC>^
+" split line
+nnoremap K i<CR><ESC>^
 
 " makes more sense
 noremap Y y$ 
@@ -115,4 +112,10 @@ nnoremap X "_X
 vnoremap X "_X
 nnoremap x "_x
 vnoremap x "_x
+
+" paste in insert mode
+inoremap <C-V> <C-R>+
+
+" buffer jetpack
+nnoremap gb :ls<CR>:b<space>
 
