@@ -14,9 +14,7 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-zinit lucid for \
+zinit wait lucid for \
 	ulwlu/enhancd \
     olets/zsh-abbr \
 	zsh-users/zsh-completions \
@@ -39,6 +37,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 bindkey '^F' forward-word
 bindkey '^B' backward-word
 
+
 # ==================== options ==================== #
 setopt no_beep
 setopt globdots
@@ -51,7 +50,7 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 
 
-# ==================== comletion ==================== #
+# ==================== completion ==================== #
 setopt auto_list
 setopt auto_menu
 setopt share_history
@@ -61,7 +60,39 @@ export HISTSIZE=100
 export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
 export FPATH="${HOME}/.zinit/completions:${FPATH}"
-autoload -Uz compinit && compinit -i && compinit
+
+function run_compinit() {
+  # references:
+  # https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L31-L44
+  # http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
+  # https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2894219
+  # https://htr3n.github.io/2018/07/faster-zsh/
+
+  # run compinit in a smarter, faster way
+  setopt localoptions extendedglob
+  ZSH_COMPDUMP=${ZSH_COMPDUMP:-${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump}
+  autoload -Uz compinit
+  # Glob magic explained:
+  #   #q expands globs in conditional expressions
+  #   N - sets null_glob option (no error on 0 results)
+  #   mh-20 - modified less than 20 hours ago
+  if [[ $ZSH_COMPDUMP(#qNmh-20) ]]; then
+    # -C (skip function check) implies -i (skip security check).
+    compinit -C -d "$ZSH_COMPDUMP"
+  else
+    mkdir -p "$ZSH_COMPDUMP:h"
+    compinit -i -d "$ZSH_COMPDUMP"
+  fi
+
+  # Compile zcompdump, if modified, in background to increase startup speed.
+  {
+    if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
+      zcompile "$ZSH_COMPDUMP"
+    fi
+  } &!
+}
+run_compinit
+
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
