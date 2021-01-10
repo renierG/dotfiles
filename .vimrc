@@ -9,6 +9,7 @@ set lazyredraw
 set matchpairs+=<:>
 set mouse=a
 set nohlsearch
+set noswapfile
 set nowrap
 set relativenumber number
 set showcmd
@@ -34,10 +35,12 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'ayu-theme/ayu-vim'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'junegunn/fzf', { 'do': {-> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-commentary'
@@ -47,10 +50,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/argtextobj.vim'
 call plug#end()
 
-" colorscheme
-let ayucolor="mirage"
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-colorscheme ayu
+" autocmd ColorScheme * highlight Normal guibg=NONE
+colorscheme gruvbox8_hard
 
 
 "" ==================== mappings ====================
@@ -58,8 +59,9 @@ let mapleader=" "
 
 " fzf
 nnoremap gf :Files<CR>
+vnoremap gf :Files<CR>
 nnoremap gF :GFiles<CR> 
-nnoremap gl :BLines<cr>
+vnoremap gF :GFiles<CR> 
 
 " vertically center cursor after jumps
 nnoremap <C-d> <C-d>M
@@ -74,32 +76,28 @@ vnoremap > >gv
 " move selection up/down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-  
-" noob scrolling
-nnoremap <C-J> 10j
-nnoremap <C-K> 10k
 
-" easier to reach
-noremap <C-H> ^
-noremap <C-L> $
+" comfy mappings
+noremap gh ^
+noremap gj G
+noremap gk gg
+noremap gl $
 
 " press v twice for linewise-visual
 vnoremap v V
 
-" always jump to exact mark with '
-noremap ' `
-
-" split line
-nnoremap K i<CR><ESC>^
-
 " makes more sense
-noremap Y y$ 
+nnoremap Y y$ 
+nnoremap U <C-R>
+vnoremap U <C-R>
 
 " yank-change 
-nnoremap yd d
 nnoremap yD D 
-nnoremap yc c 
+nnoremap yd d
+vnoremap yd d
 nnoremap yC C 
+nnoremap yc c 
+vnoremap yc c 
 
 " always change in black hole
 nnoremap D "_D
@@ -113,9 +111,16 @@ vnoremap X "_X
 nnoremap x "_x
 vnoremap x "_x
 
+" always jump to exact mark with '
+noremap ' `
+
+" split line
+nnoremap K i<CR><ESC>^
+
 " paste in insert mode
 inoremap <C-V> <C-R>+
-
-" buffer jetpack
-nnoremap gb :ls<CR>:b<space>
+  
+" noob scrolling
+noremap <C-J> 10j
+noremap <C-K> 10k
 
