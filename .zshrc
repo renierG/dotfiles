@@ -15,15 +15,14 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
 zinit wait lucid for \
-	ulwlu/enhancd \
-    olets/zsh-abbr \
 	zsh-users/zsh-completions \
-	zsh-users/zsh-autosuggestions \
 	zsh-users/zsh-syntax-highlighting \
 	as'completion' is-snippet 'https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker' \
 	as'completion' is-snippet 'https://github.com/docker/machine/blob/master/contrib/completion/zsh/_docker-machine' \
 	as'completion' is-snippet 'https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose'
 
+# zsh-users/zsh-autosuggestions \
+# ulwlu/enhancd \
 
 # ==================== env ==================== #
 export EDITOR='nvim'
@@ -97,16 +96,48 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
+# ==================== nnn ==================== #
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
 
 # ==================== alias ==================== #
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias q='exit'
+
+alias n='n -Aeo'
+
 alias cdh='cd ~'
+alias cdf='cd `fzf`'
 
 alias ll='ls -lah'
-alias tr2='tree -L 2'
-alias tr3='tree -L 3'
-alias tr4='tree -L 4'
+alias tr2='tree -L 2' tr3='tree -L 3' tr4='tree -L 4' tr5='tree -L 5'
 
 #alias ll='exa -alhF --group-directories-first --time-style=long-iso'
 #alias llx='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llx -T -L=2' tr3='llx -T -L=3'

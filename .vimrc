@@ -1,6 +1,9 @@
 
 "" ==================== config ====================
 set clipboard+=unnamedplus
+set cpoptions+=x
+set timeout
+set timeoutlen=200
 set hidden
 set ignorecase 
 set incsearch
@@ -63,19 +66,13 @@ vnoremap gf :Files<CR>
 nnoremap gF :GFiles<CR> 
 vnoremap gF :GFiles<CR> 
 
-" vertically center cursor after jumps
-nnoremap <C-d> <C-d>M
-nnoremap <C-u> <C-u>M
-nnoremap <C-f> <C-f>M
-nnoremap <C-b> <C-b>M
-
 " keep selection while indenting
 vnoremap < <gv
 vnoremap > >gv
 
 " move selection up/down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap <C-J> :m '>+1<CR>gv=gv
+vnoremap <C-K> :m '<-2<CR>gv=gv
 
 " comfy mappings
 noremap gh ^
@@ -83,44 +80,18 @@ noremap gj G
 noremap gk gg
 noremap gl $
 
-" press v twice for linewise-visual
-vnoremap v V
-
-" makes more sense
-nnoremap Y y$ 
+" feels right
 nnoremap U <C-R>
 vnoremap U <C-R>
 
-" yank-change 
-nnoremap yD D 
-nnoremap yd d
-vnoremap yd d
-nnoremap yC C 
-nnoremap yc c 
-vnoremap yc c 
-
-" always change in black hole
-nnoremap D "_D
-nnoremap d "_d
-vnoremap d "_d
-nnoremap C "_C
-nnoremap c "_c
-vnoremap c "_c
-nnoremap X "_X
-vnoremap X "_X
-nnoremap x "_x
-vnoremap x "_x
-
 " always jump to exact mark with '
 noremap ' `
+noremap Q @w
 
 " split line
 nnoremap K i<CR><ESC>^
 
-" paste in insert mode
-inoremap <C-V> <C-R>+
-  
-" noob scrolling
-noremap <C-J> 10j
-noremap <C-K> 10k
-
+" yank paste
+nnoremap <C-P> "0p
+vnoremap <C-P> "0p
+inoremap <C-V> <C-R>0
