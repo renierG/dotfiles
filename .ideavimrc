@@ -1,4 +1,4 @@
-source .vimrc
+source ~/.vimrc
 
 " ==================== settings ==================== "
 set ideajoin
