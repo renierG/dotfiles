@@ -2,6 +2,8 @@
 [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
 ```
 git clone --bare git@github.com:renierG/dotfiles.git $HOME/.dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config checkout
 ```
 
 #### Tools
