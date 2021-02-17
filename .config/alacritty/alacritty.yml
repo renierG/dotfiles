@@ -13,7 +13,7 @@ window:
    x: 2
    y: 2
 
-  decorations: none
+  decorations: full
 
 scrolling:
   history: 10000
