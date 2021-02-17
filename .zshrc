@@ -21,15 +21,13 @@ zinit wait lucid for \
 	as'completion' is-snippet 'https://github.com/docker/machine/blob/master/contrib/completion/zsh/_docker-machine' \
 	as'completion' is-snippet 'https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose'
 
-# zsh-users/zsh-autosuggestions \
-# ulwlu/enhancd \
 
 # ==================== env ==================== #
 export EDITOR='nvim'
 export GIT_EDITOR='$EDITOR'
-export ENHANCD_FILTER=fzf
 export TERM=xterm-256color
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LS_COLORS='di=38:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export EXA_COLORS='da=38;5;245:di=38;5;14:sn=38;5;28:sb=38;5;28:uu=38;5;40:un=38;5;160:gu=38;5;40:gn=38:5:160:bl=38;5;220:ur=37:uw=37:ux=37:ue=37:gr=37:gw=37:gx=37:tr=37:tw=37:tx=37:su=37:sf=37:xa=37'
 
 
 # ==================== keybindings ==================== #
@@ -128,27 +126,26 @@ n ()
 
 # ==================== alias ==================== #
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 alias q='exit'
 
-alias n='n -Aeo'
+alias vi='nvim' vim='nvim'
 
-alias cdh='cd ~'
+alias n='n -Aeo' nnn='n -Aeo'
+
 alias cdf='cd `fzf`'
 
-alias ll='ls -lah'
-alias tr2='tree -L 2' tr3='tree -L 3' tr4='tree -L 4' tr5='tree -L 5'
-
-#alias ll='exa -alhF --group-directories-first --time-style=long-iso'
-#alias llx='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llx -T -L=2' tr3='llx -T -L=3'
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+    alias ll='exa -alhF --group-directories-first --time-style=long-iso'
+    alias llx='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llx -T -L=2' tr3='llx -T -L=3'
+else
+    alias ll='ls -lah'
+    alias tr2='tree -L 2' tr3='tree -L 3' tr4='tree -L 4' tr5='tree -L 5'
+fi
 
 alias vimrc='vim ~/.vimrc'
-alias ideavimrc='vim ~/.ideavimrc'
 alias zshrc='vim ~/.zshrc'
-
-alias Oni2='~/Applications/Onivim2.AppDir/AppRun'
-
-alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
 # ==================== fzf ==================== #
