@@ -51,28 +51,26 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/argtextobj.vim'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
-" autocmd ColorScheme * highlight Normal guibg=NONE
-colorscheme gruvbox8_hard
+colorscheme OceanicNext
 
 
 "" ==================== mappings ====================
-let mapleader=" "
 
 " fzf
-nnoremap gf :Files<CR>
-vnoremap gf :Files<CR>
-nnoremap gF :GFiles<CR> 
-vnoremap gF :GFiles<CR> 
+nnoremap <C-P> :Files<CR>
+vnoremap <C-P> :Files<CR>
+
+" pasting 
+nnoremap gp "0p
+vnoremap gp "_dP
+vnoremap p "_dP
 
 " keep selection while indenting
 vnoremap < <gv
 vnoremap > >gv
-
-" move selection up/down
-vnoremap <C-J> :m '>+1<CR>gv=gv
-vnoremap <C-K> :m '<-2<CR>gv=gv
 
 " comfy mappings
 noremap gh ^
@@ -84,14 +82,12 @@ noremap gl $
 nnoremap U <C-R>
 vnoremap U <C-R>
 
+" vv starts visual linewise 
+vnoremap v V 
+
 " always jump to exact mark with '
 noremap ' `
-noremap Q @w
 
 " split line
 nnoremap K i<CR><ESC>^
 
-" yank paste
-nnoremap <C-P> "0p
-vnoremap <C-P> "0p
-inoremap <C-V> <C-R>0

@@ -31,9 +31,12 @@ export EXA_COLORS='da=38;5;245:di=38;5;14:sn=38;5;28:sb=38;5;28:uu=38;5;40:un=38
 
 
 # ==================== keybindings ==================== #
-bindkey '^F' forward-word
-bindkey '^B' backward-word
-
+bindkey '^[f^[[1;3C' forward-word
+bindkey '^[b^[[1;3D' backward-word
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
 
 # ==================== options ==================== #
 setopt no_beep
@@ -130,7 +133,7 @@ alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 
 alias q='exit'
 
-alias vi='nvim' vim='nvim'
+alias v='nvim' vi='nvim' vim='nvim'
 
 alias n='n -Aeo' nnn='n -Aeo'
 

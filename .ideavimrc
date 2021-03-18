@@ -22,28 +22,31 @@ let g:argtextobj_pairs="[:],(:),<:>"
 
 " ==================== mappings ==================== "
 
+map <C-N> <Plug>NextWholeOccurrence
+map <C-S-N> <Plug>RemoveOccurrence
+
+
 " intellij window navigation
-map <C-T> :action ActivateTerminalToolWindow<CR>
-map <C-G> :action Generate<CR>
-map <C-E> :NERDTreeFocus<CR>
-map <C-R> :action Refactorings.QuickListPopupAction<CR>
+map gt :action ActivateTerminalToolWindow<CR>
+map gr :action Refactorings.QuickListPopupAction<CR>
 
 map <C-L> <action>(ReformatCode)
 map <C-;> <action>(OptimizeImports)
 
-vmap <C-J> :action MoveStatementDown<CR>
-vmap <C-K> :action MoveStatementUp<CR>
 
 " intellij gotos
+map <C-P> :action GotoClass<CR>
+
 map gf :action GotoFile<CR>
+map gs :action GotoSymbol<CR>
 map ga :action GotoAction<CR>
+
 map gd :action GotoDeclaration<CR>
+map gi :action GotoImplementation<CR>
+map gy :action GotoTypeDeclaration<CR>
+
 map ge :action GotoNextError<CR>
 map gE :action GotoPreviousError<CR>
-map gi :action GotoImplementation<CR>
-map gs :action GotoSymbol<CR>
-map gc :action GotoClass<CR>
-map gy :action GotoTypeDeclaration<CR>
 
 map gq :action QuickJavaDoc<CR>
 
@@ -51,11 +54,9 @@ map gq :action QuickJavaDoc<CR>
 map <C-O> :action Back<CR>
 map <C-I> :action Forward<CR>
 
-map [ :action MethodUp<CR>
-map ] :action MethodDown<CR>
-
 " intellij run/debug
 map \r :action ChooseRunConfiguration<CR>
 map \s :action Stop<CR>
 map \d :action ChooseDebugConfiguration<CR>
 map \b :action ToggleLineBreakpoint<CR>
+
