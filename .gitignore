@@ -2,6 +2,7 @@
 /*/
 
 !/.config/alacritty/alacritty.yml
+!/.config/karabiner
 !/.config/nvim/init.vim
 !/.config/zsh/abbreviations
 !.gitignore
