@@ -1,0 +1,148 @@
+" settings
+set ideajoin
+set dialogescape=on
+set virtualedit=none
+set idearefactormode=keep
+set ideavimsupport=dialog
+set visualbell
+set noerrorbells
+set showmodewidget
+set nooldundo
+
+" plugins
+set multicursor
+set sneak
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-commentary'
+Plug 'vim-indent-object'
+Plug 'vim-scripts/argtextobj.vim'
+
+" easymotion
+let g:EasyMotion_do_mapping=0
+
+" nerdtree
+let g:NERDTreeMapActivateNode="l"
+let g:NERDTreeMapJumpParent="h"
+
+" argtextobj
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" keymap
+let mapleader = " "
+
+nnoremap <esc> <esc>:nohl<cr>
+
+vnoremap < <gv
+vnoremap > >gv
+
+" tool windows
+map <leader>e :NERDTreeFocus<cr>
+map <leader>E <Action>(SelectInProjectView)
+
+map <leader>t <Action>(ActivateTerminalToolWindow)
+map <leader>T <Action>(Terminal.OpenInTerminal)
+
+map <leader>sf <Action>(GotoFile)
+map <leader>sa <Action>(GotoAction)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sc <Action>(GotoClass)
+map <leader>sg <Action>(FindInPath)
+
+" git
+map <leader>ga <Action>(ChangesView.AddUnversioned)
+map <leader>gB <Action>(Git.Branches)
+map <leader>gd <Action>(Compare.SameVersion)
+map <leader>gb <Action>(Annotate)
+map <leader>gu <Action>(Vcs.RollbackChangedLines)
+
+map ]g <Action>(VcsShowNextChangeMarker)
+map [g <Action>(VcsShowPrevChangeMarker)
+
+" split
+map <leader>- <Action>(SplitHorizontally)
+map <leader>| <Action>(SplitVertically)
+map <m-h> <c-w>h
+map <m-j> <c-w>j
+map <m-k> <c-w>k
+map <m-l> <c-w>l
+
+" search
+map <leader>ma <Action>(ShowBookmarks)
+
+" lsp
+map <leader>a <Action>(ShowIntentionActions)
+map <leader>fm <Action>(ReformatCode)<Action>(OptimizeImports)
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(Refactorings.QuickListPopupAction)
+
+map gd <Action>(GotoDeclaration)
+map gD <Action>(GotoDeclarationOnly)
+map gI <Action>(GotoImplementation)
+map gY <Action>(GotoTypeDeclaration)
+
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+
+" multicursor
+vmap s <plug>(multicursor-ms/) " bugged
+vmap s <Plug>NextWholeOccurrence
+vmap S <Plug>AllWholeOccurrences
+" map s <Plug>FindAllOccurrences
+
+" misc
+map <C-O> <Action>(Back)
+map <C-I> <Action>(Forward)
+
+nmap H <esc>
+nmap M <esc>
+nmap L <esc>
+
+" ij run/debug
+map <leader>;r <Action>(ChooseRunConfiguration)
+map <leader>;d <Action>(ChooseDebugConfiguration)
+map <leader>;D <Action>(ShowExecutionPoint)
+map <leader>;s <Action>(Stop)
+map <leader>;b <Action>(ToggleLineBreakpoint)
+map <leader>;e <Action>(QuickEvaluateExpression)
+map <leader>;E <Action>(EvaluateExpression)
+map <leader>;h <Action>(StepOut)
+map <leader>;j <Action>(StepOver)
+map <leader>;l <Action>(StepInto)
+map <leader>;c <Action>(Resume)
+map <leader>;C <Action>(RunToCursor)
+
+" font size
+map <m-=> <Action>(EditorIncreaseFontSizeGlobal)
+map <m--> <Action>(EditorDecreaseFontSizeGlobal)
+map <m-0> <Action>(EditorResetFontSizeGlobal)
+
+" harpoon
+nmap <leader>hh <Action>(ShowHarpoon)
+nmap <leader>hm <Action>(AddToHarpoon)
+nmap <leader>hf <Action>(GotoHarpoon1)
+nmap <leader>hd <Action>(GotoHarpoon2)
+nmap <leader>hs <Action>(GotoHarpoon3)
+nmap <leader>ha <Action>(GotoHarpoon4)
+
+
+" shortcut handler
+sethandler <c-a> a:vim
+sethandler <c-e> a:vim
+sethandler <c-h> a:vim
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+sethandler <c-l> a:vim
+sethandler <c-m> a:vim
+sethandler <c-o> a:vim
+sethandler <c-r> a:vim
+sethandler <c-w> a:vim
+sethandler <c-v> a:vim
+sethandler <c-p> a:vim
+sethandler <c-n> a:vim
+sethandler <m-h> a:vim
+sethandler <m-j> a:vim
+sethandler <m-k> a:vim
+sethandler <m-l> a:vim
