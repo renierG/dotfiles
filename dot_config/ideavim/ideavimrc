@@ -87,7 +87,7 @@ map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 
 " multicursor
-vmap s <plug>(multicursor-ms/) " bugged
+vmap s <plug>(multicursor-ms/)
 vmap s <Plug>NextWholeOccurrence
 vmap S <Plug>AllWholeOccurrences
 " map s <Plug>FindAllOccurrences
@@ -118,14 +118,6 @@ map <leader>;C <Action>(RunToCursor)
 map <m-=> <Action>(EditorIncreaseFontSizeGlobal)
 map <m--> <Action>(EditorDecreaseFontSizeGlobal)
 map <m-0> <Action>(EditorResetFontSizeGlobal)
-
-" harpoon
-nmap <leader>hh <Action>(ShowHarpoon)
-nmap <leader>hm <Action>(AddToHarpoon)
-nmap <leader>hf <Action>(GotoHarpoon1)
-nmap <leader>hd <Action>(GotoHarpoon2)
-nmap <leader>hs <Action>(GotoHarpoon3)
-nmap <leader>ha <Action>(GotoHarpoon4)
 
 
 " shortcut handler

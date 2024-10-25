@@ -17,7 +17,6 @@
           - bat
           - chezmoi
           - coreutils
-          - exa
           - fd
           - findutils
           - fzf
@@ -32,6 +31,7 @@
           - htop
           - jq
           - kubectl
+          - lsd
           - neofetch
           - neovim
           - ripgrep
