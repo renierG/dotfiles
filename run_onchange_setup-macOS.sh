@@ -30,6 +30,7 @@ brew_install eza # oxidized ls
 brew_install findutils
 brew_install fzf
 brew_install gawk
+brew_install gh
 brew_install git
 brew_install gnu-getopt
 brew_install gnu-indent
@@ -42,11 +43,11 @@ brew_install jq
 brew_install kubectl
 brew_install neofetch
 brew_install neovim
+brew_install npm
 brew_install oh-my-posh
 brew_install podman
 brew_install podman-compose
 brew_install tree
-brew_install wget
 brew_install wget
 brew_install yq
 brew_install zsh
