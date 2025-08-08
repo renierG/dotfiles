@@ -1,0 +1,9 @@
+theme = Kanagawa Wave
+font-size = 14
+keybind = global:super+\=toggle_quick_terminal
+keybind = super+f=write_screen_file:open
+keybind = alt+f=esc:f
+keybind = alt+b=esc:b
+background-opacity = 0.9
+background-blur-radius = 20
+minimum-contrast=1.05

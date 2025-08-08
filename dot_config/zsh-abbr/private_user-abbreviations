@@ -1,0 +1,6 @@
+abbr "hw"="echo hello world"
+abbr "myip"="dig +short txt ch whoami.cloudflare @1.0.0.1"
+abbr "php82debug"="/usr/local/opt/php@8.2/bin/php -dxdebug.mode=debug -dxdebug.client_host=127.0.0.1 -dxdebug.client_port=9003 -dxdebug.start_with_request=yes"
+abbr "phpdebug"="php -dxdebug.mode=debug -dxdebug.client_host=127.0.0.1 -dxdebug.client_port=9003 -dxdebug.start_with_request=yes"
+abbr "pwdc"="pwd | pbcopy"
+abbr "sql_rm_definer"="LC_ALL=C sed -i'.original' -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/; s/DEFINER[ ]*=[ ]*[^*]*PROCEDURE/PROCEDURE/; s/DEFINER[ ]*=[ ]*[^*]*FUNCTION/FUNCTION/'"

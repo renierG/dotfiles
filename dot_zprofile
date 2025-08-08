@@ -1,8 +1,6 @@
 # Profile file. Runs on login. Environmental variables are set here.
+export ZDOTDIR="$HOME/.config/zsh/"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export ZDOTDIR="$HOME/.config/zsh/"
-export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij/"

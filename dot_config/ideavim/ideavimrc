@@ -12,6 +12,7 @@ set nooldundo
 " plugins
 set multicursor
 set sneak
+set mini-ai
 
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdtree'
@@ -28,7 +29,7 @@ let g:NERDTreeMapActivateNode="l"
 let g:NERDTreeMapJumpParent="h"
 
 " argtextobj
-let g:argtextobj_pairs="[:],(:),<:>"
+let g:argtextobj_pairs="[:](:),<:>"
 
 " keymap
 let mapleader = " "
@@ -38,12 +39,19 @@ nnoremap <esc> <esc>:nohl<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap y "*y
+nnoremap Y v$"*y
+vnoremap y "*y
+
 " tool windows
 map <leader>e :NERDTreeFocus<cr>
 map <leader>E <Action>(SelectInProjectView)
 
 map <leader>t <Action>(ActivateTerminalToolWindow)
-map <leader>T <Action>(Terminal.OpenInTerminal)
+map <leader>T <Action>(Terminal.OpenInReworkedTerminal)
 
 map <leader>sf <Action>(GotoFile)
 map <leader>sa <Action>(GotoAction)
@@ -73,7 +81,8 @@ map <m-l> <c-w>l
 map <leader>ma <Action>(ShowBookmarks)
 
 " lsp
-map <leader>a <Action>(ShowIntentionActions)
+map g. <Action>(ShowIntentionActions)
+map g\ <Action>(AIAssistant.Editor.AskAiAssistantInEditor)
 map <leader>fm <Action>(ReformatCode)<Action>(OptimizeImports)
 map <leader>rn <Action>(RenameElement)
 map <leader>rm <Action>(Refactorings.QuickListPopupAction)
@@ -85,16 +94,26 @@ map gY <Action>(GotoTypeDeclaration)
 
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
 
 " multicursor
-vmap s <plug>(multicursor-ms/)
-vmap s <Plug>NextWholeOccurrence
-vmap S <Plug>AllWholeOccurrences
-" map s <Plug>FindAllOccurrences
+nmap gl <Plug>NextWholeOccurrence
+xmap gl <Plug>NextWholeOccurrence
+nmap ga <Plug>AllWholeOccurrences
+xmap ga <Plug>AllWholeOccurrences
+
+" sneak
+nmap s <Plug>(sneak-s)
+vmap s <Plug>(sneak-s)
+nmap S <Plug>(sneak-Z)
 
 " misc
 map <C-O> <Action>(Back)
 map <C-I> <Action>(Forward)
+
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
 
 nmap H <esc>
 nmap M <esc>
@@ -105,6 +124,7 @@ map <leader>;r <Action>(ChooseRunConfiguration)
 map <leader>;d <Action>(ChooseDebugConfiguration)
 map <leader>;D <Action>(ShowExecutionPoint)
 map <leader>;s <Action>(Stop)
+map <leader>;S <Action>(Stop)
 map <leader>;b <Action>(ToggleLineBreakpoint)
 map <leader>;e <Action>(QuickEvaluateExpression)
 map <leader>;E <Action>(EvaluateExpression)
@@ -118,7 +138,6 @@ map <leader>;C <Action>(RunToCursor)
 map <m-=> <Action>(EditorIncreaseFontSizeGlobal)
 map <m--> <Action>(EditorDecreaseFontSizeGlobal)
 map <m-0> <Action>(EditorResetFontSizeGlobal)
-
 
 " shortcut handler
 sethandler <c-a> a:vim
