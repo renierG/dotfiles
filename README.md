@@ -5,13 +5,12 @@ Manage your dotfiles across multiple diverse machines, securely using [Chezmoi](
 ### Run
 
 ```shell
-export GITHUB_USERNAME=renierG
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply renierG
 ```
-
 
 ### Update
 
 ```shell
 chezmoi update
 ```
+
