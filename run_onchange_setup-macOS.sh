@@ -16,6 +16,13 @@ fi
 if ! which brew &>/dev/null; then
   echo "[INFO] Install brew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  if [[ -d "/opt/homebrew/bin" ]]; then # Apple Silicon (ARM)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+  if [[ -d "/usr/local/bin" ]]; then # Intel macOS
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 fi
 
 echo "[INFO] Update brew..."
