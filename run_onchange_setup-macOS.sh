@@ -32,6 +32,7 @@ brew_install() { [[ "$1" == "--cask" ]] && shift && (brew list --cask "$1" &>/de
 
 echo "[INFO] Install brew packages..."
 brew_install bat # oxidized cat
+brew_install chezmoi
 brew_install coreutils
 brew_install eza # oxidized ls
 brew_install findutils
